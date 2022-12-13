@@ -74,7 +74,7 @@ class Variables:
         # return 'a'
         # todo is this slowdown?
         if not can_trace_type(value):
-            value = str(type(value))
+            value = str(value)[:300]
         if type(value) == dict:
             return value.copy()
         return value

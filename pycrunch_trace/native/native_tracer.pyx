@@ -264,12 +264,12 @@ cdef class NativeTracer:
         self.flush_queue_if_full()
 
     cdef str ensure_safe_for_serialization(self, value):
-        current_type = type(value)
-        if current_type not in allowed_types:
-            return str(current_type)
+        # current_type = type(value)
+        # if current_type not in allowed_types:
+        #    return str(current_type)
         # return 'a'
         # todo is this slowdown?
-        return str(value)
+        return str(value)[:300]
 
     cdef push_traceable_variables(self, frame, NativeVariables locals):
         cdef NativeVariable current
